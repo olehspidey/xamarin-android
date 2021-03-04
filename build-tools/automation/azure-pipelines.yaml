@@ -145,6 +145,9 @@ stages:
     steps:
     - checkout: self
       submodules: recursive
+    - checkout: release_scripts
+      clean: true
+      condition: and(succeeded(), eq(variables['MicroBuildSignType'], 'Real'))
 
     - template: yaml-templates/commercial-build.yaml
 

@@ -127,10 +127,6 @@ steps:
   workingDirectory: ${{ parameters.xaSourcePath }}
   displayName: create updateinfo file
 
-- checkout: release_scripts
-  clean: true
-  persistCredentials: true
-  condition: and(succeeded(), eq(variables['MicroBuildSignType'], 'Real'))
 
 - script: >
     cd $(System.DefaultWorkingDirectory)/release-scripts &&
